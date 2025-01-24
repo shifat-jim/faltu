@@ -12,6 +12,7 @@
 <body>
 
     <div class="container" id="container">
+        
         <div class="form-container sign-up">
             <form>
                 <h1>Create Account</h1>
@@ -19,29 +20,32 @@
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
                 </div>
-                <span>please fill up all the information correctly</span>
+                <span>Please fill up all the information correctly</span>
                 <input type="text" placeholder="Name">
                 <input type="number" placeholder="NID">
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
+        
+        
         <div class="form-container sign-in">
-            <form>
-                <h1>Sign In</h1>
+            <form onsubmit="return func()">
+                <h1>Log In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
                     <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    
                 </div>
-                <span> you can use your email password</span>
-                <input type="number" placeholder="NID">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
-                <button class="login-btn" onclick="func()">Sign In</button>
+                <span>You can use your email and password</span>
+                <input type="number" id="NID" placeholder="NID" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <a href="#">Forgot Your Password?</a>
+                <button type="submit" class="login-btn">Log In</button>
             </form>
         </div>
+
+        
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
@@ -57,18 +61,23 @@
             </div>
         </div>
     </div>
-    <script>
-        function func(){
-            var NID=document.getElementById("NID").value;
-            var pass =document.getElementById('password').value;
-            if(NID=='0112230815' && pass=='1234'){
-                alert("Successfull !!")
-                window.location.assign("index.html")
-            }
-            else("INCORRECT.please check your NID or Password")
-        }
-              
 
+    <script>
+        function func() {
+            
+            var NID = document.getElementById("NID").value;
+            var pass = document.getElementById('password').value;
+
+            
+            if (NID == '1234' && pass == '1234') {
+                alert("Login successful!");
+                window.location.assign("index.html"); 
+                return false;  
+            } else {
+                alert("Incorrect NID or Password. Please try again.");
+                return false;  
+            }
+        }
     </script>
 
     <script src="script.js"></script>
